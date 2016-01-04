@@ -192,7 +192,8 @@ static void newDrawTextInRect(UILabel *self, SEL _cmd, CGRect rect)
   CGContextRef context = UIGraphicsGetCurrentContext();
   if (drawsShadow){
     CGContextSaveGState(context);
-    UIColor *shadowColor = [titleSettingsPairs[self.text] shadowColor] ?: [[UIColor blackColor] colorWithAlphaComponent:1./3.];
+    CXAMenuItemSettings *settings = titleSettingsPairs[self.text];
+    UIColor *shadowColor = [settings shadowColor] ?: [[UIColor blackColor] colorWithAlphaComponent:1./3.];
     CGContextSetShadowWithColor(context, CGSizeMake(0, -1), 0, shadowColor.CGColor);
   }
   
